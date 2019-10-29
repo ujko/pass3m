@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/jdbc">
+<head>
+    <meta charset="UTF-8">
+    <title>All</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <div th:each="sentence: ${sentences}">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>Identifikator</th>
+                    <th>Nazwa</th>
+                    <th>Użytkownik</th>
+                    <th>Hasło</th>
+                    <th>Email</th>
+                    <th>WWW</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${sentence.id}"/>
+                <td th:text="${sentence.name}"/>
+                <td th:text="${sentence.user}"/>
+                <td th:text="${sentence.pass}"/>
+                <td th:text="${sentence.email}"/>
+                <td th:text="${sentence.webPage}"/>
+            </tr>
+            <tr>
+                <th>Opis</th>
+                <td colspan="5" th:text="${sentence.description}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
